@@ -15,6 +15,9 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'will_paginate'
 gem 'acts_as_votable'
+gem 'sucker_punch'
+gem 'invisible_captcha'
+gem 'ckeditor_rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -48,7 +51,10 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
-
+  gem 'awesome_rails_console'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'annotate'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

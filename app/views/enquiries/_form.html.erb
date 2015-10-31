@@ -1,6 +1,6 @@
 <%= simple_form_for(@enquiry) do |f| %>
   <%= f.error_notification %>
-
+  <%= f.invisible_captcha :subtitle %>
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :email %>

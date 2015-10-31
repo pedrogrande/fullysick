@@ -1,5 +1,6 @@
 class EnquiriesController < ApplicationController
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
+  invisible_captcha only: [:create, :update], honeypot: :subtitle
 
   # GET /enquiries
   # GET /enquiries.json
@@ -28,8 +29,7 @@ class EnquiriesController < ApplicationController
 
     respond_to do |format|
       if @enquiry.save
-        EnquiryMailer.response(@enquiry.id).deliver_now
-        EnquiryMailer.received(@enquiry.id).deliver_now
+        EnquiryMailerJob.new.async.perform(@enquiry.id)
         format.html { redirect_to @enquiry, notice: 'Enquiry was successfully created.' }
         format.json { render :show, status: :created, location: @enquiry }
       else

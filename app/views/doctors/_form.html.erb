@@ -6,7 +6,7 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :post_nominals %>
-    <%= f.input :bio %>
+    <%= f.input :bio, input_html: { class: 'ckeditor' } %>
     <%= f.input :photo %>
     <%= f.input :tag_list, input_html: { value: @doctor.tag_list.to_s } %>
   </div>
@@ -15,3 +15,7 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>
+  $('.ckeditor').ckeditor();
+</script>
